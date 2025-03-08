@@ -19,7 +19,7 @@ public class Instructor {
     private String email;
 
     @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference(value = "instructor-courses")
     private List<Course> courses = new ArrayList<>();
 
     public Instructor() {}

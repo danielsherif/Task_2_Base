@@ -23,11 +23,11 @@ public class Course {
 
     @ManyToOne
     @JoinColumn(name = "instructor_id")
-    @JsonBackReference
+    @JsonBackReference(value = "instructor-courses")
     private Instructor instructor;
 
     @ManyToMany(mappedBy = "courses")
-    @JsonBackReference
+    @JsonBackReference(value = "student-courses")
     private Set<Student> students = new HashSet<>();
 
     public Course() {}
