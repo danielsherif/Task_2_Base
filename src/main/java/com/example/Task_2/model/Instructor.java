@@ -1,6 +1,7 @@
 package com.example.Task_2.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class Instructor {
     private String email;
 
     @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Course> courses = new ArrayList<>();
 
     public Instructor() {}

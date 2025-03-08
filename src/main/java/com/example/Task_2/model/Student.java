@@ -1,6 +1,7 @@
 package com.example.Task_2.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,6 +24,7 @@ public class Student {
         joinColumns = @JoinColumn(name = "student_id"),
         inverseJoinColumns = @JoinColumn(name = "course_id")
     )
+    @JsonManagedReference
     private Set<Course> courses = new HashSet<>();
 
     public Student() {}

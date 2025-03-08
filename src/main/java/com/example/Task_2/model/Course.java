@@ -1,6 +1,7 @@
 package com.example.Task_2.model;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,9 +23,11 @@ public class Course {
 
     @ManyToOne
     @JoinColumn(name = "instructor_id")
+    @JsonBackReference
     private Instructor instructor;
 
     @ManyToMany(mappedBy = "courses")
+    @JsonBackReference
     private Set<Student> students = new HashSet<>();
 
     public Course() {}
